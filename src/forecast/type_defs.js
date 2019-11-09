@@ -10,6 +10,13 @@ exports.typeDefs = gql`
     hourly: HourlyForecast
     daily: DailyForecast
     alerts: [ForecastAlert]
+    flags: ForecastFlags
+  }
+
+  type ForecastFlags {
+    sources: [String!]
+    nearestStation: Float
+    units: String
   }
 
   type CurrentForecast {
