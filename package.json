@@ -1,0 +1,37 @@
+{
+  "name": "weekendwarriorscorer",
+  "version": "1.0.0",
+  "description": "Let's score where we like to go over the weekend to pick the best place to go!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-forecast": "node src/forecast/index.js",
+    "start-ski-resort": "node src/snow_report/index.js",
+    "start-gateway": "node src/gateway/index.js",
+    "watch": "npm run start"
+  },
+  "watch": {
+    "start": "src/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/streed/weekendwarriorscorer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/streed/weekendwarriorscorer/issues"
+  },
+  "homepage": "https://github.com/streed/weekendwarriorscorer#readme",
+  "dependencies": {
+    "@apollo/federation": "^0.10.2",
+    "@apollo/gateway": "^0.10.8",
+    "apollo-server": "^2.9.7",
+    "axios": "^0.19.0",
+    "dataloader": "^1.4.0",
+    "graphql": "^14.5.8",
+    "lodash": "^4.17.15",
+    "npm-watch": "^0.6.0",
+    "querystring": "^0.2.0"
+  }
+}
