@@ -22,6 +22,11 @@ const routes = [
     path: '/snowreport',
     name: 'Area Snow Report',
     component: () => import('../views/SnowReport.vue')
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard.vue')
   }
 ]
 

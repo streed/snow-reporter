@@ -1,9 +1,5 @@
 <template>
   <div class="container is-10">
-    Area Snow Report for <b>{{snowReport.name}}</b><br/>
-
-    Sub Areas:
-    <SubAreaSnowReport v-bind:area="area" v-bind:key="area.id" v-for="area in snowReport.areas"/>
   </div>
 </template>
 
@@ -89,15 +85,11 @@ const resortReports = {
   }
 };
 
-import SubAreaSnowReport from './SubAreaSnowReport.vue';
-
 export default {
   name: 'SnowReport',
-  components: {
-    SubAreaSnowReport
-  },
   props: {
-    areaId: String
+    areaId: String,
+    subAreaId: String
   },
   data: function () {
     return {
