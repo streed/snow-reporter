@@ -1,3 +1,5 @@
+const _ = require('lodash');
+
 exports.resolvers = {
   Query: {
     areaSnowReport: (parent, {id}) => {
@@ -15,5 +17,15 @@ exports.resolvers = {
       const {comments} = await ctx.snowReportLoader.load(id);
       return comments;
     },
+  },
+  SubAreaSnowReport: {
+    currentSeasonTotal: async ({seasonTotals}, args, ctx) => {
+      // Season's are not years...they are a combination
+      // of last start to next start.
+      const currentYear = new Date().getFullYear().toString();
+      return _.find(seasonTotals, (season) => {
+        return season.season === currentYear;
+      });
+    }
   }
 }

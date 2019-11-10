@@ -21,7 +21,7 @@ exports.typeDefs = gql`
     longitude: Float!
     name: String
     baseDepth: Int
-    currentSeason: SeasonTotal
+    currentSeasonTotal: SeasonTotal
     seasonTotals: [SeasonTotal]
     readings: [SnowReading]
   }

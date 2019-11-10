@@ -1,9 +1,13 @@
-const _ = require('lodash');
-const axios = require('axios');
-const DataLoader = require('dataloader');
-const querystring = require('querystring');
-const Dataloader = require('dataloader');
+<template>
+  <div>
+    Area Snow Report
+    {{areaId}}
+    {{snowReport.latitude}}
+    {{snowReport.longitude}}
+  </div>
+</template>
 
+<script>
 const resortReports = {
   "1": {
     id: "1",
@@ -84,17 +88,16 @@ const resortReports = {
   }
 };
 
-const getSnowReport = async (id) => {
-  return Promise.resolve(resortReports[id]);
-};
-
-const getMultiSnowReports = async (ids) => {
-  return Promise.all(_.map(ids, (id) => {
-    return getSnowReport(id);
-  }));
-};
-
-exports.createSnowReportLoader = () => {
-  const snowReportLoader = new DataLoader(ids => getMultiSnowReports(ids));
-  return snowReportLoader;
-};
+export default {
+  name: 'SnowReport',
+  props: {
+    areaId: Number
+  },
+  data: () => ({
+    snowReport: {}
+  }),
+  mounted: () => {
+    this.snowReport = resortReports[this.props.areaId.toString()];
+  }
+}
+</script>
