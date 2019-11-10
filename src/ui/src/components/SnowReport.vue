@@ -1,9 +1,9 @@
 <template>
-  <div>
-    Area Snow Report
-    {{areaId}}
-    {{snowReport.latitude}}
-    {{snowReport.longitude}}
+  <div class="container is-10">
+    Area Snow Report for <b>{{snowReport.name}}</b><br/>
+
+    Sub Areas:
+    <SubAreaSnowReport v-bind:area="area" v-bind:key="area.id" v-for="area in snowReport.areas"/>
   </div>
 </template>
 
@@ -11,6 +11,7 @@
 const resortReports = {
   "1": {
     id: "1",
+    name: "The Summit at Snoqualmie",
     areas: [
       {
         id: "2",
@@ -88,16 +89,24 @@ const resortReports = {
   }
 };
 
+import SubAreaSnowReport from './SubAreaSnowReport.vue';
+
 export default {
   name: 'SnowReport',
-  props: {
-    areaId: Number
+  components: {
+    SubAreaSnowReport
   },
-  data: () => ({
+  props: {
+    areaId: String
+  },
+  data: function () {
+    return {
     snowReport: {}
-  }),
-  mounted: () => {
-    this.snowReport = resortReports[this.props.areaId.toString()];
+    };
+  },
+  mounted: function () {
+    const areaId = this.areaId.toString();
+    this.snowReport = resortReports[areaId];
   }
 }
 </script>

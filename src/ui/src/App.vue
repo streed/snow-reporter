@@ -31,3 +31,15 @@
   color: #42b983;
 }
 </style>
+
+<link
+  href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css"
+  rel="stylesheet"
+/>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+
+<!-- Vue-mapbox CSS -->
+<link
+  href="https://cdn.jsdelivr.net/npm/vue-mapbox@latest/dist/vue-mapbox.css"
+  rel="stylesheet"
+/>
