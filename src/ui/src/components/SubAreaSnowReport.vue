@@ -30,7 +30,7 @@
           :axis-step="10"
           :labels="labels"
           :values="values">
-          <note :text="'Snow readings'" :align="left"></note>
+          <note :text="'Snow readings'" :align="'left'"></note>
         </graph-bar>
       </div>
     </div>

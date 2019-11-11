@@ -3,6 +3,7 @@ const { gql } = require('apollo-server');
 exports.typeDefs = gql`
   type AreaSnowReport @key(fields: "id") {
     id: ID!
+    name: String
     subAreas: [SubAreaSnowReport]
     comments: [AreaSnowReportComment]
   }
@@ -30,16 +31,18 @@ exports.typeDefs = gql`
     id: ID!
     readingTime: Int
     currentReading: Float
-    unit: Units
+    units: Units
   }
 
   type SeasonTotal {
+    id: ID!
     season: String
     total: Int
-    unit: Units
+    units: Units
   }
 
   extend type Query {
+    areaSnowReports: [AreaSnowReport]
     areaSnowReport(id: ID!): AreaSnowReport
   }
 
