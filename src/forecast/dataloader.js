@@ -2,7 +2,7 @@ const _ = require('lodash');
 const axios = require('axios');
 const Dataloader = require('dataloader');
 
-const DARK_SKY_KEY = '3069e13e8ab60c606b3f969ccab69eb1';
+const DARK_SKY_API_KEY = process.env.DARK_SKY_API_KEY;
 
 const darkSkyClient = axios.create({
   baseURL: `https://api.darksky.net/forecast/${DARK_SKY_KEY}/`,
