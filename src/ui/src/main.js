@@ -3,6 +3,7 @@ import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 import moment from 'moment'
 import VueGraph from 'vue-graph'
+import VueLogger from 'vuejs-logger';
 
 import App from './App.vue'
 import router from './router'
@@ -10,6 +11,7 @@ import store from './store'
 
 Vue.use(Buefy);
 Vue.use(VueGraph);
+Vue.use(VueLogger);
 
 Vue.config.productionTip = false
 

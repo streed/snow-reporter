@@ -1,12 +1,10 @@
 <template>
-  <div class="column">
-    <div class="message">
-      <div class="message-header">
-        Comment by {{comment.posterName}}
-      </div>
-      <div class="message-body">
-        <p><span v-html="renderedBody"></span></p>
-      </div>
+  <div class="message">
+    <div class="message-header">
+      Comment by {{comment.posterName}} on {{comment.postDate | formatTimestamp}}
+    </div>
+    <div class="message-body is-flex">
+      <p><span v-html="renderedBody"></span></p>
     </div>
   </div>
 </template>

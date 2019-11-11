@@ -25,9 +25,13 @@
         <div v-else>
           Please select an area on the left.
         </div>
-        <div v-if="area !== null" class="level is-mobile">
-          <SnowReportComment :comment="comment" v-for="comment in area.comments"
-                                                v-bind:key="comment.id" />
+        <div>
+        <div v-if="area !== null">
+          <SnowReportComment
+            :comment="comment"
+            v-for="comment in area.comments"
+            :key="comment.id" />
+        </div>
         </div>
       </div>
     </div>
