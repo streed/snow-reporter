@@ -1,2 +1,9 @@
-# weekendwarriorscorer
-Let's score where we like to go over the weekend to pick the best place to go!
+# Snow Reporter
+
+Running locally run the following:
+
+```
+npm run start-snow-report
+npm run start-forecast
+npm run start-gateway
+```
