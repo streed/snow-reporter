@@ -1,6 +1,8 @@
 const {ApolloServer} = require('apollo-server');
 const {ApolloGateway} = require('@apollo/gateway');
 
+const APOLLO_API_KEY = process.env.APOLLO_API_KEY;
+
 const gateway = new ApolloGateway({
   serviceList: [
     {
@@ -16,7 +18,7 @@ const server = new ApolloServer({
   gateway,
   subscriptions: false,
   engine: {
-    apiKey: "service:weekend-warrior-scorer:hbBzrJuw9MYQIq7bn-S9YA",
+    apiKey: APOLLO_API_KEY,
     schemaTag: "current"
   }
 });
