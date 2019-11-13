@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-forecast": "node src/forecast/index.js",
     "start-snow-report": "node src/snow_report/index.js",
+    "start-satalite": "node src/satalite/index.js",
     "start-gateway": "node src/gateway/index.js",
     "watch": "npm run start"
   },
