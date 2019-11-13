@@ -2,7 +2,7 @@ const _ = require('lodash');
 const axios = require('axios');
 const querystring = require('querystring');
 
-const AGROMONITORING_API_KEY = "018bde3413750a8a4cd379ea77826077";
+const AGROMONITORING_API_KEY = process.env.AGROMONITORING_API_KEY;
 
 /* Example request:
 {
