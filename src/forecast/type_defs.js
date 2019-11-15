@@ -150,5 +150,6 @@ exports.typeDefs = gql`
 
   extend type Query {
     forecast(latitude: Float!, longitude: Float!): Forecast
+    timemachine(latitude: Float!, longitude: Float!, time: Int!): Forecast
   }
 `;

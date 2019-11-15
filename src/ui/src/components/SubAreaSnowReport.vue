@@ -98,7 +98,7 @@
 
     <div class="level is-mobile">
       <div class="level-item">
-        <div v-if="area.readings.length != 0">
+        <div v-if="area.readings && area.readings.length != 0">
           <graph-bar
             :height="400"
             :width="640"

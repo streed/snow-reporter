@@ -5,7 +5,7 @@ const Dataloader = require('dataloader');
 const DARK_SKY_API_KEY = process.env.DARK_SKY_API_KEY;
 
 const darkSkyClient = axios.create({
-  baseURL: `https://api.darksky.net/forecast/${DARK_SKY_KEY}/`,
+  baseURL: `https://api.darksky.net/forecast/${DARK_SKY_API_KEY}/`,
   timeout: 10000,
 });
 
@@ -26,8 +26,13 @@ const getMultiDarkSkyData = async (latLongs) => {
 
 exports.createDarkSkyLoader = () => {
   const darkSkyLoader = new Dataloader(latLongs => getMultiDarkSkyData(latLongs));
-  const darkSkyLoaderWrapper = async (latitude, longitude) => {
-    const key = `${latitude},${longitude}`;
+  const darkSkyLoaderWrapper = async ({latitude, longitude, time = null}) => {
+    let key = `${latitude},${longitude}`;
+
+    if (time !== null) {
+      key = `${key},${time}`;
+    }
+
     return await darkSkyLoader.load(key);
   };
   return darkSkyLoaderWrapper;

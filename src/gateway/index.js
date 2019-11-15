@@ -9,7 +9,10 @@ const gateway = new ApolloGateway({
       name: 'forecast', url: 'http://localhost:4001'
     },
     {
-      name: 'ski-resorts', url: 'http://localhost:4002'
+      name: 'snow-reprots', url: 'http://localhost:4002'
+    },
+    {
+      name: 'satalites', url: 'http://localhost:4003'
     }
   ]
 });

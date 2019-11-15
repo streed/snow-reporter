@@ -15,7 +15,7 @@ exports.typeDefs = gql`
     posterName: String
   }
 
-  type SubAreaSnowReport @key(fields: "id") @key(fields: "latitude longitude") {
+  type SubAreaSnowReport @key(fields: "id") @key(fields: "latitude longitude") @key(fields: "polygonId") {
     id: ID!
     lastReadingTime: Int
     latitude: Float!
@@ -25,6 +25,7 @@ exports.typeDefs = gql`
     currentSeasonTotal: SeasonTotal
     seasonTotals: [SeasonTotal]
     readings: [SnowReading]
+    polygonId: String!
   }
 
   type SnowReading {

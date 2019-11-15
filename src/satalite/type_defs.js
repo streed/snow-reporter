@@ -95,6 +95,11 @@ exports.typeDefs = gql`
     evi: String!
   }
 
+  extend type SubAreaSnowReport @key(fields: "polygonId") {
+    polygonId: String! @external
+    sataliteImages(start: Int!, end: Int!): [SataliteImage]
+  }
+
   extend type Query {
     sataliteImages(polygonId: ID!, start: Int!, end: Int!, coverageMin: Float = 50.0, coverageMax: Float = 100.0, cloudsMin: Float = 0.0, cloudsMax: Float = 100.0, resolutionMin: Int= 1, resolutionMax: Int = 100): [SataliteImage]
   }

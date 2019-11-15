@@ -33,7 +33,8 @@ const SubAreaSnowReport = sequelize.define('sub_area_snow_report', {
   latitude: Sequelize.FLOAT,
   longitude: Sequelize.FLOAT,
   name: Sequelize.STRING,
-  baseDepth: Sequelize.INTEGER
+  baseDepth: Sequelize.INTEGER,
+  polygonId: Sequelize.STRING
 });
 
 const SnowReading = sequelize.define('snow_reading', {

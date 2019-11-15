@@ -40,29 +40,15 @@ exports.resolvers = {
   },
   SubAreaSnowReport: {
     readings: async ({id}, args, ctx) => {
-      const readings = await ctx.models.SnowReading.findAll({
-        where: {
-          subAreaSnowReportId: id
-        }
-      });
-
+      const readings = await ctx.readingsLoader.load(id);
       return readings;
     },
     seasonTotals: async ({id}, args, ctx) => {
-      const totals = await ctx.models.SeasonTotal.findAll({
-        where: {
-          subAreaSnowReportId: id
-        }
-      });
-
+      const totals = await ctx.seasonTotalLoader.load(id);
       return totals;
     },
     currentSeasonTotal: async ({id}, args, ctx) => {
-      const totals = await ctx.models.SeasonTotal.findAll({
-        where: {
-          subAreaSnowReportId: id
-        }
-      });
+      const totals = await ctx.seasonTotalLoader.load(id);
       // Season's are not years...they are a combination
       // of last start to next start.
       const currentYear = new Date().getFullYear().toString();

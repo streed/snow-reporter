@@ -3,7 +3,7 @@ const {buildFederatedSchema} = require('@apollo/federation')
 
 const {resolvers} = require('./resolvers');
 const {typeDefs} = require('./type_defs');
-const {createSnowReportLoader, createSubAreaSnowReportLoader} = require('./dataloader');
+const loaders = require('./dataloader');
 const models = require('./models');
 
 // models.sequelize.sync({force: true});
@@ -11,8 +11,11 @@ const models = require('./models');
 const server = new ApolloServer({
   schema: buildFederatedSchema([{typeDefs, resolvers}]),
   context: () => ({
-    snowReportLoader: createSnowReportLoader(),
-    subAreaReportLoader: createSubAreaSnowReportLoader(),
+    snowReportLoader: loaders.createSnowReportLoader(),
+    subAreaReportLoader: loaders.createSubAreaSnowReportLoader(),
+    subAreaLoader: loaders.createSubAreasLoader(),
+    seasonTotalLoader: loaders.createSeasonTotalsLoader(),
+    readingsLoader: loaders.createReadingsLoader(),
     models: models
   })
 });
