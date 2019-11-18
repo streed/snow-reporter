@@ -3,6 +3,8 @@ const {ApolloGateway} = require('@apollo/gateway');
 
 const APOLLO_API_KEY = process.env.APOLLO_API_KEY;
 
+const PORT = process.env.PORT || 4000;
+
 const gateway = new ApolloGateway({
   serviceList: [
     {
@@ -26,6 +28,6 @@ const server = new ApolloServer({
   }
 });
 
-server.listen({port: 4000}).then(({url}) => {
+server.listen({port: PORT, host: "0.0.0.0"}).then(({url}) => {
   console.log(`Gateway server ready at ${url}`);
 });

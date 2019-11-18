@@ -5,6 +5,8 @@ const {resolvers} = require('./resolvers');
 const {typeDefs} = require('./type_defs');
 const {createDarkSkyLoader} = require('./dataloader');
 
+const PORT = process.env.PORT || 4001;
+
 const server = new ApolloServer({
   schema: buildFederatedSchema([{typeDefs, resolvers}]),
   context: () => ({
@@ -12,6 +14,6 @@ const server = new ApolloServer({
   })
 });
 
-server.listen({port: 4001}).then(({url}) => {
+server.listen({port: PORT}).then(({url}) => {
   console.log(`Forecast Server ready at ${url}`);
 });

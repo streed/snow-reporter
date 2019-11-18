@@ -7,6 +7,7 @@ const loaders = require('./dataloader');
 const models = require('./models');
 
 // models.sequelize.sync({force: true});
+const PORT = process.env.PORT || 4002;
 
 const server = new ApolloServer({
   schema: buildFederatedSchema([{typeDefs, resolvers}]),
@@ -20,6 +21,6 @@ const server = new ApolloServer({
   })
 });
 
-server.listen({port: 4002}).then(({url}) => {
+server.listen({port: PORT}).then(({url}) => {
   console.log(`Snow Report Server ready at ${url}`);
 });

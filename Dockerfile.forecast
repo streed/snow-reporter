@@ -1,0 +1,17 @@
+FROM node:13.1-stretch
+
+WORKDIR /app
+
+RUN apt-get install python
+
+ADD . .
+
+RUN npm install
+RUN npm ci --only=production
+
+ENV PORT 4000
+ENV DARK_SKY_API_KEY ""
+
+EXPOSE 4000
+
+ENTRYPOINT ["node", "src/forecast/index.js"]
