@@ -15,7 +15,7 @@
     "lodash": "^4.17.15",
     "mapbox-gl": "^1.5.0",
     "marked": "^0.7.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "vue": "^2.6.10",
     "vue-graph": "^0.8.6",
     "vue-mapbox": "^0.4.1",
